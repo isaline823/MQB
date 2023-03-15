@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class PlayerDetector : MonoBehaviour
@@ -19,9 +20,11 @@ public class PlayerDetector : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        print(other);
         if (other.tag != "Player" && other.tag != "Key") return;
         if (other.tag == "Key")
         {
+            print("key detected");
             _myKey = other.GetComponent<Key>();
             if (_isDoorActivator && _door != null && _door.NeedKey && _myKey != null)
             {
