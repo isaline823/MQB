@@ -18,7 +18,7 @@ public class PedestalsManager : MonoBehaviour
             _allActivated = _allActivated && pedestal.IsValidated;
             if (!_allActivated) break;
         }
-        SwitchActiveState(_gameObjectsToActivate, _allActivated);
+        SetActiveState(_gameObjectsToActivate, _allActivated);
         if (!_asAlreadyInstantiate && _allActivated) { InstantiateOnce(_gameObjectsToInstantiateOnce); }
     }
 
@@ -31,11 +31,11 @@ public class PedestalsManager : MonoBehaviour
         _asAlreadyInstantiate = true;
     }
 
-    private void SwitchActiveState(List<GameObject> gameObjectsToActivate, bool allActivated)
+    private void SetActiveState(List<GameObject> gameObjectsToActivate, bool allActivated)
     {
         foreach (GameObject gameObject in gameObjectsToActivate)
         {
-            gameObject.SetActive(!gameObject.activeSelf);
+            gameObject.SetActive(allActivated);
         }
     }
 }
