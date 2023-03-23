@@ -1337,6 +1337,7 @@ GameObject:
   - component: {fileID: 8830049370560227553}
   - component: {fileID: 8830049370560227557}
   - component: {fileID: 8957786402365637101}
+  - component: {fileID: 1103603339}
   m_Layer: 0
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -1604,3 +1605,16 @@ MonoBehaviour:
   m_PlayHapticsOnHoverCanceled: 0
   m_HapticHoverCancelIntensity: 0
   m_HapticHoverCancelDuration: 0
+--- !u!65 &1103603339
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8830049370560227552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.01, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
