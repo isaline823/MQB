@@ -22,7 +22,7 @@ public class WhiteboardMarker : MonoBehaviour
     {
         _renderer = _tip.GetComponent<Renderer>();
         _colors = Enumerable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray();
-        _tipLength = _tip.localScale.z * 10;
+        _tipLength = _tip.localScale.z;
     }
     private void Update()
     {
@@ -31,18 +31,17 @@ public class WhiteboardMarker : MonoBehaviour
 
     private void Draw()
     {
-        if (Physics.Raycast(_tip.position, transform.forward, out _touch, _tipLength))
+        if (Physics.Raycast(_tip.position, transform.up, out _touch, _tipLength))
         {
-            print(_touch);
             if (_touch.transform.CompareTag("Whiteboard"))
             {
-                print(name + ": is touching whitboard");
                 if (_whiteboard == null)
-                { _whiteboard = _touch.transform.GetComponent<Whiteboard>(); }
-
+                {
+                    _whiteboard = _touch.transform.GetComponent<Whiteboard>();
+                }
                 _touchPos = new Vector2(_touch.textureCoord.x, _touch.textureCoord.y);
-                int x = (int)_touchPos.x * _whiteboard._textureSize.x - (_penSize / 2);
-                int y = (int)_touchPos.y * _whiteboard._textureSize.y - (_penSize / 2);
+                int x = (int)(_touchPos.x * _whiteboard._textureSize.x - (_penSize / 2));
+                int y = (int)(_touchPos.y * _whiteboard._textureSize.y - (_penSize / 2));
                 if (y < 0 || y > _whiteboard._textureSize.y || x < 0 || x > _whiteboard._textureSize.x) return;
                 if (_touchedLastFrame)
                 {

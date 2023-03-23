@@ -14,9 +14,5 @@ public class Whiteboard : MonoBehaviour
         renderer.material.mainTexture = _texture;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
 }
