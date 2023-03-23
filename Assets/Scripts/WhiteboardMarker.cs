@@ -22,7 +22,7 @@ public class WhiteboardMarker : MonoBehaviour
     {
         _renderer = _tip.GetComponent<Renderer>();
         _colors = Enumerable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray();
-        _tipLength = _tip.localScale.z*10;
+        _tipLength = _tip.localScale.z * 10;
     }
     private void Update()
     {
@@ -33,8 +33,10 @@ public class WhiteboardMarker : MonoBehaviour
     {
         if (Physics.Raycast(_tip.position, transform.forward, out _touch, _tipLength))
         {
+            print(_touch);
             if (_touch.transform.CompareTag("Whiteboard"))
             {
+                print(name + ": is touching whitboard");
                 if (_whiteboard == null)
                 { _whiteboard = _touch.transform.GetComponent<Whiteboard>(); }
 
